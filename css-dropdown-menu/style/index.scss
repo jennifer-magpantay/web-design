@@ -1,0 +1,146 @@
+// tutorial https://www.youtube.com/watch?v=RyERAzUuZv8
+
+// ---------- GLOBAL VARIABLES ----------
+@import url("https://fonts.googleapis.com/css2?family=Inter&display=swap");
+
+$bc-color: #000000;
+$lg-gray: #ecf0f1;
+$text-color: #282828;
+$gray: #bdc3c7;
+$box-shadow: 4px 8px 16px 0 rgba(0, 0, 0, 0.1);
+
+%flex {
+    display: flex;
+    align-items: center;
+    // justify-content: center;
+}
+
+// ---------- GLOBAL STYLES ----------
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    background-color: $bc-color;
+    font-family: "Inter", sans-serif;
+}
+
+a,
+span {
+    color: inherit;
+    cursor: pointer;
+    transition: opacity 0.2s;
+
+    &:hover {
+        opacity: 0.85;
+    }
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+// ---------- BODY ----------
+.nav__container {
+    @extend %flex;
+    width: 100%;
+    height: auto;
+    padding: 1em;
+    border-bottom: 1px solid $lg-gray;
+}
+
+.container {
+    @extend %flex;
+    width: 100%;
+    height: calc(100vh - 10em);
+}
+
+.dropdown {
+    width: 100%;
+    display: flex;
+    color: $lg-gray;
+    font-size: 1.6rem;
+
+    &__item {
+        position: relative;
+        margin-right: 1rem;
+
+        // setting animation to expand the submenu when the item is hovered
+        &:hover {
+            .dropdown__submenu {
+                opacity: 1;
+                transform: translateX(-50%) rotateX(0);
+                transition-timing-function: ease-out;
+            }
+        }
+    }
+
+    &__link {
+        text-decoration: none;
+
+        // to improve acessibility, add the underline when links are hovered
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+
+    // this submenu has to be shown just when its item is hovered
+    &__submenu {
+        width: 100%;
+        position: absolute;
+        top: calc(100% + 1rem);
+        left: 50%;
+        padding: 1rem 0;
+        background-color: $lg-gray;
+        border-radius: 3px;
+        color: $text-color;
+        font-size: 1.4rem;
+        opacity: 0.25;
+        // add all transforms to create the dropdown effect
+        transform: translateX(-50%) rotateX(-90deg);
+        transform-origin: top center;
+        transition: all 150ms ease-in;
+
+        // to create an arrow pointing up by suing :after
+        &::after {
+            content: "";
+            position: absolute;
+            left: 1rem;
+            top: -0.7rem;
+            border: 0.8rem solid $lg-gray;
+            border-radius: 2px;
+            transform: rotate(45deg);
+
+            // left: 50%;
+            // top: -15%;
+            // border: 1rem solid red;
+            // border-bottom-color: $lg-gray;
+            // transform: rotate(0);
+        }
+
+        &-item {
+            &:first-child {
+                margin-top: 0.5rem;
+            }
+        }
+
+        &-link {
+            display: block;
+            padding: 0.5rem 0 0.5rem 0.5rem;
+            text-decoration: none;
+
+            &:hover {
+                background-color: $gray;
+                text-decoration: underline;
+            }
+        }
+    }
+}

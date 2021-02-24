@@ -1,0 +1,132 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter&display=swap");
+.nav__container, .container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  background-color: #000000;
+  font-family: "Inter", sans-serif;
+}
+
+a,
+span {
+  color: inherit;
+  cursor: pointer;
+  -webkit-transition: opacity 0.2s;
+  transition: opacity 0.2s;
+}
+
+a:hover,
+span:hover {
+  opacity: 0.85;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nav__container {
+  width: 100%;
+  height: auto;
+  padding: 1em;
+  border-bottom: 1px solid #ecf0f1;
+}
+
+.container {
+  width: 100%;
+  height: calc(100vh - 10em);
+}
+
+.dropdown {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  color: #ecf0f1;
+  font-size: 1.6rem;
+}
+
+.dropdown__item {
+  position: relative;
+  margin-right: 1rem;
+}
+
+.dropdown__item:hover .dropdown__submenu {
+  opacity: 1;
+  -webkit-transform: translateX(-50%) rotateX(0);
+          transform: translateX(-50%) rotateX(0);
+  -webkit-transition-timing-function: ease-out;
+          transition-timing-function: ease-out;
+}
+
+.dropdown__link {
+  text-decoration: none;
+}
+
+.dropdown__link:hover {
+  text-decoration: underline;
+}
+
+.dropdown__submenu {
+  width: 100%;
+  position: absolute;
+  top: calc(100% + 1rem);
+  left: 50%;
+  padding: 1rem 0;
+  background-color: #ecf0f1;
+  border-radius: 3px;
+  color: #282828;
+  font-size: 1.4rem;
+  opacity: 0.25;
+  -webkit-transform: translateX(-50%) rotateX(-90deg);
+          transform: translateX(-50%) rotateX(-90deg);
+  -webkit-transform-origin: top center;
+          transform-origin: top center;
+  -webkit-transition: all 150ms ease-in;
+  transition: all 150ms ease-in;
+}
+
+.dropdown__submenu::after {
+  content: "";
+  position: absolute;
+  left: 1rem;
+  top: -0.7rem;
+  border: 0.8rem solid #ecf0f1;
+  border-radius: 2px;
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+
+.dropdown__submenu-item:first-child {
+  margin-top: 0.5rem;
+}
+
+.dropdown__submenu-link {
+  display: block;
+  padding: 0.5rem 0 0.5rem 0.5rem;
+  text-decoration: none;
+}
+
+.dropdown__submenu-link:hover {
+  background-color: #bdc3c7;
+  text-decoration: underline;
+}
+/*# sourceMappingURL=index.css.map */

@@ -1,0 +1,69 @@
+// tutorial https://www.youtube.com/watch?v=eTELLTacg-8&list=TLPQMjMwMjIwMjHN6j7tKeEf9A&index=1
+
+// ---------- GLOBAL VARIABLES ----------
+@import url("https://fonts.googleapis.com/css2?family=Inter&display=swap");
+
+// try to not use too 'light' colors
+$lg-gray: #ecf0f1;
+$lg-orange: #feca57;
+$dk-orange: #EE5A24;
+$orange: #F79F1F;
+$pink: #EA2027;
+$gradient: linear-gradient(-45deg,  $lg-orange, $orange, $dk-orange, $pink);
+
+%flex {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+// ---------- GLOBAL STYLES ----------
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    color: $lg-gray;
+    font-family: "Inter", sans-serif;
+    font-size: 62.5%;
+}
+
+// ---------- BODY ----------
+// set the style to your background as usual
+.container {
+    @extend %flex;
+    width: 100%;
+    height: 100vh;
+    // you have to set the background + background size, otherwise won't work
+    // as much extended/bigger is your background size, the better
+    background: $gradient no-repeat;
+    background-size: 300% 300%;
+    // as much longer is the animation duration time, the better
+// set your animation as infinite, to keeping it moving over and over
+    animation: gradient-background 15s ease infinite;
+
+    h1 {
+        font-size: 5em;
+        text-align: center;
+    }
+}
+
+// ---------- ANIMATION ----------
+@keyframes gradient-background {
+    0% {
+        // to your animation you will set the position to your background according to x & y axios;
+        // set it te positions to each 'step' of your animation
+        background-position: 0 50%;
+    }
+  
+    50% {
+        background-position: 100% 100%;
+    }
+ 
+    100% {
+        background-position: 0 50%;
+    }
+}
+

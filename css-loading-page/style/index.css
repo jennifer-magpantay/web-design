@@ -1,0 +1,69 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter&display=swap");
+.container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  font-size: 62.5%;
+  -webkit-transform: scale(2);
+          transform: scale(2);
+  background-color: #ecf0f1;
+}
+
+.container {
+  width: 100%;
+  height: 100vh;
+}
+
+.loader {
+  width: 5em;
+  height: 5em;
+  border: 6px solid #718093;
+  border-radius: 50%;
+  border-top-color: #273c75;
+  -webkit-animation: rotating 1s infinite, fading 10s ease-out infinite;
+          animation: rotating 1s infinite, fading 10s ease-out infinite;
+}
+
+@-webkit-keyframes rotating {
+  to {
+    -webkit-transform: rotate(1turn);
+            transform: rotate(1turn);
+  }
+}
+
+@keyframes rotating {
+  to {
+    -webkit-transform: rotate(1turn);
+            transform: rotate(1turn);
+  }
+}
+
+@-webkit-keyframes fading {
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes fading {
+  to {
+    opacity: 0;
+  }
+}
+/*# sourceMappingURL=index.css.map */

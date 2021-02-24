@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="HTML, CSS, Sass">
+    <meta name="author" content="Jennifer Magpantay">
+    <!-- styles -->
+    <link rel="stylesheet" href="./style/index.css">
+    <title>Dropdown Menu - CSS </title>
+</head>
+
+<body>
+    <nav class="nav__container">
+        <!-- to create a dropdown menu you should start with a ul, that will work as the 'container' for all the items/links of the menu -->
+        <ul class="dropdown">
+            <!-- then, each item of the menu will be created as a list -->
+            <li class="dropdown__item">
+                <!-- inside each list, you will set a link or a span-->
+                <span>HOME</span>
+            </li>
+
+            <li class="dropdown__item">
+                <!-- to create a submenu, you have to set another ul inside of the item you want to add the submenu-->
+                <span>CATEGORIES</span>
+                <ul class="dropdown__submenu">
+                    <li class="dropdown__submenu-item">
+                        <a href="" class="dropdown__submenu-link">CLOTHES</a>
+                    </li>
+                    <li class="dropdown__submenu-item">
+                        <a href="" class="dropdown__submenu-link">ACESSORIES</a>
+                    </li>
+                    <li class="dropdown__submenu-item">
+                        <a href="" class="dropdown__submenu-link">SALES</a>
+                    </li>
+                </ul>
+            </li>
+
+            <li class="dropdown__item">
+                <span>SUPPORT</span>
+                <ul class="dropdown__submenu">
+                    <li class="dropdown__submenu-item">
+                        <a href="" class="dropdown__submenu-link">FAQ</a>
+                    </li>
+                    <li class="dropdown__submenu-item">
+                        <a href="" class="dropdown__submenu-link">RETURN</a>
+                    </li>
+                    <li class="dropdown__submenu-item">
+                        <a href="" class="dropdown__submenu-link">REFUND</a>
+                    </li>
+                    <li class="dropdown__submenu-item">
+                        <a href="" class="dropdown__submenu-link">HELP</a>
+                    </li>
+                </ul>
+            </li>
+
+            <li class="dropdown__item">
+                <a href="" class="dropdown__link">ABOUT</a>
+            </li>
+
+            <li class="dropdown__item">
+                <a href="" class="dropdown__link">CONTACT</a>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="container">
+    </div>
+</body>
+
+</html>

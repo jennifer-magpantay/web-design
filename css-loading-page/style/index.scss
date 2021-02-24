@@ -1,0 +1,62 @@
+// tutorial https://www.youtube.com/watch?v=SB9PQrOJVz4
+
+// ---------- GLOBAL VARIABLES ----------
+@import url("https://fonts.googleapis.com/css2?family=Inter&display=swap");
+
+$lg-gray: #ecf0f1;
+$gray: #718093;
+$blue: #273c75;
+
+
+%flex {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+// ---------- GLOBAL STYLES ----------
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "Inter", sans-serif;
+    font-size: 62.5%;
+    transform: scale(2);
+    background-color: $lg-gray;
+}
+
+// ---------- BODY ----------
+.container {
+    @extend %flex;
+    width: 100%;
+    height: 100vh;
+    
+}
+
+.loader {
+    width: 5em;
+    height: 5em;
+    border: 6px solid $gray;
+    border-radius: 50%;
+    border-top-color: $blue;
+    animation: rotating 1s infinite, fading 10s ease-out infinite;
+    
+}
+
+// ---------- ANIMATION ----------
+// set an animation to rotate the element
+@keyframes rotating{
+    to {
+        transform: rotate(1turn);
+    }
+}
+
+// and another one with a fading effect
+@keyframes fading {
+    to {
+        opacity: 0;
+    }
+}
