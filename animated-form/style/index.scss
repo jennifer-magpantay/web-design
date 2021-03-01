@@ -1,0 +1,250 @@
+// tutorial https://www.youtube.com/watch?v=GykTLqODQuU
+
+// ---------- GLOBAL VARIABLES ----------
+@import url("https://fonts.googleapis.com/css2?family=Inter&display=swap");
+
+$bc-color: #ffff;
+$gray: #a4b0be;
+$dk-gray: #2f3542;
+$title-color: #227093;
+$text-color: #282828;
+$btn-color: #34ace0;
+$text-color-btn: #fff;
+$pink: #ea2027;
+$box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.05);
+
+%flex {
+    display: flex;
+    align-items: center;
+}
+
+// ---------- GLOBAL STYLES ----------
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    background-color: $bc-color;
+    font-family: "Inter", sans-serif;
+    overflow: hidden;
+}
+
+.dark-mode {
+    filter: invert(1) hue-rotate(180deg);
+    transition: all 0.1s ease-in-out;
+}
+
+// ---------- QUERIES ----------
+$tablet: 800px;
+@mixin tablet {
+    @media (max-width: #{$tablet}) {
+        @content;
+    }
+}
+
+$mobile: 600px;
+@mixin mobile {
+    @media (max-width: #{$mobile}) {
+        @content;
+    }
+}
+
+// ---------- NAVBAR ----------
+.nav__container {
+    @extend %flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 6em;
+    padding: 1em 5em;
+    border-bottom: 1px solid $text-color;
+    color: $text-color;
+
+    .nav__items {
+        @extend %flex;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+
+    .nav__links {
+        font-size: 1.4em;
+        &:not(:last-child) {
+            margin-right: 1rem;
+        }
+    }
+}
+
+.toggle {
+    & > input {
+        display: none;
+    }
+
+    & > label {
+        width: 4.5em;
+        height: 2em;
+        display: block;
+        position: relative;
+        background-color: $gray;
+        border-radius: 10em;
+        cursor: pointer;
+        transition: all 0.3s ease;
+
+        &::after {
+            content: "";
+            width: 2.5em;
+            height: 2.5em;
+            position: absolute;
+            left: -2px;
+            top: -3px;
+            background-color: #fff;
+            border-radius: 10em;
+            box-shadow: $box-shadow;
+            transition: all 0.3s ease;
+        }
+
+        &:active::after {
+            transform: scale(1.15, 0.85);
+        }
+    }
+
+    & > input:checked ~ label {
+        &::after {
+            left: 2em;
+            background-color: $dk-gray;
+        }
+    }
+}
+
+// ---------- BODY ----------
+.container {
+    @extend %flex;
+    width: 100%;
+    height: calc(100vh - 6em);
+    flex-direction: column;
+    justify-content: center;    
+
+    h1 {
+        margin-bottom: 2rem;
+        color: $title-color;       
+        font-size: clamp(2.5rem, 3.1vw, 3.9rem);
+        text-align: center;
+    }
+}
+
+.form__container {
+    @extend %flex;
+    width: 35%;
+    height: auto;
+    flex-direction: column;
+    justify-content: left;    
+    margin-top: 2rem;
+    padding: 2rem;
+    border: 1px solid $gray;
+    border-radius: 4px;
+    box-shadow: $box-shadow;
+    overflow: hidden;
+    // animation form
+    animation: fading-form 1s;
+
+    @include tablet {
+        width: 50%;
+    }
+
+    @include mobile {
+        width: 80%;
+    }
+
+    form {
+        transition: all 0.5s ease-in-out;
+        overflow: hidden;
+
+        .input-row {
+            width: 100%;
+            // slidng animation
+            animation: sliding-form 1s;
+            &:nth-child(2) {
+                animation: sliding-form 1s backwards;
+                animation-delay: 0.5s;
+            }
+
+            input {
+                width: 100%;
+                margin: 0.5rem 0;
+                padding: 0.8rem 1.6rem;
+                border: 1px solid $gray;
+            }
+
+            p,
+            label {
+                font-size: clamp(1.4rem, 1.6vw, 1.6rem);
+            }
+        }
+
+        button {
+            display: block;
+            padding: 1rem 2rem;
+            margin: 1em auto 0;
+            background-color: $btn-color;
+            border: 0;
+            border-radius: 50px;
+            box-shadow: $box-shadow;
+            color: $text-color-btn;
+            font-size: 1.4rem;
+            font-weight: bold;
+            letter-spacing: 1.5px;
+            outline: none;
+            text-transform: uppercase;
+            transform: opacity 0.3s;
+            // sliding animation
+            animation: sliding-form 1s backwards;
+            animation-delay: 1s;
+
+            &:hover {
+                background-color: $title-color;
+            }
+        }
+    }
+}
+// class added by js
+.form-hidden {
+    animation: hiding-form 1s ease-in forwards;
+}
+
+// ---------- ANIMATION ----------
+// adding a fading + scale effect to the form when the page is loaded
+@keyframes fading-form {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+// moving the form rom left-right 
+@keyframes sliding-form {
+    from {
+        transform: translateX(-200%);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+
+// moving down the form
+@keyframes hiding-form {
+    from {
+        transform: translateY(0);
+    }
+    to {
+        transform: translateY(100vh);
+    }
+}
