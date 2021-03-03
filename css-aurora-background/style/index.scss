@@ -1,0 +1,85 @@
+// tutorial https://www.youtube.com/watch?v=27KJtyjJ5YM&list=LL&index=9
+
+// ---------- GLOBAL VARIABLES ----------
+@import url("https://fonts.googleapis.com/css2?family=Inter&display=swap");
+
+// try to not use too 'light' colors
+$lg-gray: #ecf0f1;
+$lg-green: #4cd137;
+$dk-green: #079992;
+$lg-blue: #82ccdd;
+$dk-blue: #130f40;
+$pink: #b71540;
+
+// $gradient-bc: linear-gradient(180deg, $dk-blue, $dk-green, $green);
+// $gradient-before: linear-gradient(-45deg, $dk-green, $green, $lg-green);
+// $gradient-after: linear-gradient(90deg, $pink, $dk-blue, $lg-blue);
+
+// gradient options: https://webgradients.com/
+$gradient-bc: linear-gradient(to top, $dk-green 0%, $dk-blue 100%);
+$gradient-after: linear-gradient(60deg, #3d3393 0%, #2b76b9 37%, #2cacd1 65%, #35eb93 100%);
+$gradient-before: linear-gradient(-225deg, #2CD8D5 0%, #6B8DD6 48%, #8E37D7 100%);
+
+%flex {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+%aurora-settings {
+    content: "";
+    width: 35%;
+    height: 70%;
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(90px);
+}
+
+// ---------- GLOBAL STYLES ----------
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    color: $lg-gray;
+    font-family: "Inter", sans-serif;
+    font-size: 62.5%;
+    overflow: hidden;
+}
+
+// ---------- BODY ----------
+// container will holds other containers whithin itself made by :before and :after
+.container {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    padding: 1rem;
+    background: $gradient-bc no-repeat;
+    
+    &::before {
+        @extend %aurora-settings;
+        bottom: 0;
+        left: 0;
+        margin-left: 1rem;
+        background: $gradient-before no-repeat;
+          }
+
+    &::after {
+        @extend %aurora-settings;
+        right: 0;
+        top: 0;
+        margin: 1rem 1rem 0 0;
+        background: $gradient-after no-repeat;
+     }
+
+    h1 {
+        display: block;
+        position: relative;
+        padding-top: 10rem;
+        font-size: 5em;
+        text-align: center;
+        z-index: 10;
+    }
+}
