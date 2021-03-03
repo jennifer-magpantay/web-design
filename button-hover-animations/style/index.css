@@ -1,0 +1,123 @@
+/*tutorials list: 
+https://www.youtube.com/watch?v=K4yI_Q_LZOI
+*/
+@import url("https://fonts.googleapis.com/css2?family=Abel&display=swap");
+.button {
+  width: 100%;
+  height: 100vh;
+}
+
+.button__container {
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.button .top-bottom__button {
+  padding: 1.6rem 2.5rem;
+  cursor: pointer;
+  font-family: "Abel", sans-serif;
+  font-size: 3.1rem;
+  text-align: center;
+  outline: none;
+}
+
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+.button .top-bottom {
+  background-color: #c0392b;
+}
+
+.button .top-bottom__button {
+  position: relative;
+  background-color: transparent;
+  color: #fff;
+  border: 0;
+  -webkit-transition: background-color 1s ease;
+  transition: background-color 1s ease;
+}
+
+.button .top-bottom__button:hover {
+  background-color: #ab3326;
+}
+
+.button .top-bottom__button::before, .button .top-bottom__button::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  border: 0.6rem solid transparent;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.button .top-bottom__button::before {
+  top: 0;
+  left: 0;
+}
+
+.button .top-bottom__button::after {
+  right: 0;
+  bottom: 0;
+}
+
+.button .top-bottom__button:hover::before, .button .top-bottom__button:hover::after {
+  width: 100%;
+  height: 100%;
+  border: 0.4rem solid #fff;
+  animation: reverse 1s alternate-reverse;
+}
+
+.button .top-bottom__button:hover::before {
+  border-right: none;
+  border-bottom: none;
+  -webkit-transition: height 0.5s ease-out, width 0.5s ease-out 0.5s;
+  transition: height 0.5s ease-out, width 0.5s ease-out 0.5s;
+}
+
+.button .top-bottom__button:hover::after {
+  border-left: none;
+  border-top: none;
+  -webkit-transition: height 0.5s ease-out, width 0.5s ease-out 0.5s;
+  transition: height 0.5s ease-out, width 0.5s ease-out 0.5s;
+}
+
+@-webkit-keyframes reverse {
+  from {
+    width: 100%;
+    height: 100%;
+  }
+  to {
+    width: 0;
+    height: 0;
+  }
+}
+
+@keyframes reverse {
+  from {
+    width: 100%;
+    height: 100%;
+  }
+  to {
+    width: 0;
+    height: 0;
+  }
+}
+/*# sourceMappingURL=index.css.map */

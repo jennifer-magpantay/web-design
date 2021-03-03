@@ -1,0 +1,122 @@
+/*tutorials list: 
+https://www.youtube.com/watch?v=K4yI_Q_LZOI
+*/
+
+// ---------- GLOBAL VARIABLES ----------
+@import url("https://fonts.googleapis.com/css2?family=Abel&display=swap");
+
+$text-color: #fff;
+$lg-green: #2ecc71;
+$dk-green: #079992;
+$dk-blue: #130f40;
+$dk-gray: #2c3e50;
+$pink: #b71540;
+$dk-red: #c0392b;
+$dk-orange: #d35400;
+$box-shadow: 4px 8px 16px 0 rgba(0, 0, 0, 0.1);
+
+%section {
+    width: 100%;
+    height: 100vh;
+}
+
+%container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+%button {
+    padding: 1.6rem 2.5rem;
+    cursor: pointer;
+    font-family: "Abel", sans-serif;
+    font-size: 3.1rem;
+    text-align: center;
+    outline: none;
+}
+
+// ---------- GLOBAL STYLES ----------
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+// ---------- BODY ----------
+.button {
+    @extend %section;
+
+    &__container {
+        @extend %container;
+    }
+    .top-bottom {
+        background-color: $dk-red;
+
+        &__button {
+            @extend %button;
+            position: relative;
+            background-color: transparent;
+            color: $text-color;
+            border: 0;
+            transition: background-color 1s ease;
+
+            &:hover {
+                background-color: darken($dk-red, 5);
+            }
+
+            &::before,
+            &::after {
+                content: "";
+                position: absolute;
+                width: 0;
+                height: 0;
+                border: 0.6rem solid transparent;
+                box-sizing: border-box;
+            }
+
+            &::before {
+                top: 0;
+                left: 0;
+            }
+
+            &::after {
+                right: 0;
+                bottom: 0;
+            }
+
+            &:hover::before,
+            &:hover::after {
+                width: 100%;
+                height: 100%;
+                border: 0.4rem solid $text-color;
+                animation: reverse 1s alternate-reverse;
+            }
+
+            &:hover::before {
+                border-right: none;
+                border-bottom: none;
+                transition: height 0.5s ease-out, width 0.5s ease-out 0.5s;
+            }
+
+            &:hover::after {
+                border-left: none;
+                border-top: none;
+                transition: height 0.5s ease-out, width 0.5s ease-out 0.5s;
+            }
+        }
+    }
+}
+
+// animation reverse - ??
+@keyframes reverse {
+    from {
+    }
+    to {
+    }
+}
