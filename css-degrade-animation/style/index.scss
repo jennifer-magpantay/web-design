@@ -9,7 +9,11 @@ $lg-orange: #feca57;
 $dk-orange: #EE5A24;
 $orange: #F79F1F;
 $pink: #EA2027;
-$gradient: linear-gradient(-45deg,  $lg-orange, $orange, $dk-orange, $pink);
+$gradient: linear-gradient(-45deg, $lg-orange, $orange, $dk-orange, $pink);
+
+/* other gradient option: https://webgradients.com/
+$gradient: linear-gradient(to right, #fa709a 0%, #fee140 100%);
+*/
 
 %flex {
     display: flex;
