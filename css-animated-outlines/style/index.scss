@@ -1,0 +1,85 @@
+// tutorial https://tobiasahlin.com/blog/css-trick-animating-link-underlines/
+
+// ---------- GLOBAL VARIABLES ----------
+@import url("https://fonts.googleapis.com/css2?family=Inter&display=swap");
+
+$color-bc: #282828;
+$color-text: #fff;
+$color-body: #ecf0f1;
+
+%flex {
+  display: flex;
+  align-items: center;
+  justify-content: left;
+}
+
+// ---------- GLOBAL STYLES ----------
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  background-color: $color-body;
+  font-family: "Inter", sans-serif;
+}
+
+// ---------- HEADER ----------
+header {
+  padding: 2em 5em;
+  background-color: $color-bc;
+}
+
+// ---------- NAVBAR ----------
+nav {
+  @extend %flex;
+
+  // set styles to the links as usual
+  .nav__list {
+    margin: 0;
+    padding: 0;
+    color: $color-text;
+    font-size: 1.6rem;
+    list-style: none;
+
+    &--item {
+      display: inline;
+      margin-right: 2em;
+    }
+
+    // the main animation styles will be applied to the links
+    &--link {
+      padding-bottom: 0.2em;
+      position: relative;
+      color: inherit;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.5s ease-in-out;
+
+      // the secret is here, on ::before, where the width x height of the outline that has to be set, followed by the scale, transition and visibility
+      &::before {
+        content: "";
+        width: 100%;
+        height: 2px;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        background-color: $color-text;
+        transform: scaleX(0);
+        transition: all 0.5s ease-in-out;
+        visibility: hidden;
+      }
+
+      // then, once the link is hovered, it will trigger the scale and visibilty
+      &:hover::before {
+        transform: scaleX(1);
+        visibility: visible;
+      }
+    }
+  }
+}
